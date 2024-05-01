@@ -1,0 +1,10 @@
+# Ecommerce Application:
+------------------------
+- Setup Git local repository [DONE]
+- Separate Dev and Prod Configurations [DONE]
+- Setup Django Debug-toolbar [DONE]
+- Authentication
+    - Custom User by inheriting BaseUser class.
+    - Signup
+    - Login
+    - Logout
