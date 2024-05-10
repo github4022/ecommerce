@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third Party Apps
     'debug_toolbar',  # debug-toolbar app
+    'bootstrap5',
     # Local Apps
     'accounts',
     'pages',
