@@ -3,23 +3,26 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<main class="container">
-    <div class="bg-light p-5 rounded">
-        <h1>Furniture Shop</h1>
-        <p class="lead">
+<div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="#" alt="" width="72" height="57">
+    <h1 class="display-5 fw-bold">Furniture Shop</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
             We proudly design and develop our entire
             range of furniture products in India. We combine
             creativity, craftsmanship and technology to
             create furniture suited for discerning customers,
             locally and internationally.
-            <br><br>
             We have gained considerable experience
             dealing with large format retail companies and
             online stores, in India and abroad. Most of our
             materials are sourced in India, ensuring high
             quality and reduced carbon footprint.
         </p>
-        <a class="btn btn-lg btn-primary" href="/docs/5.0/components/navbar/" role="button">Button</a>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+        </div>
     </div>
-</main>
+</div>
 {% endblock content %}

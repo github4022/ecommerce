@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% block title %}SignUp{% endblock title %}
+
+{% block content %}
+<br>
+<body class="text-center">
+<main class="form-signin">
+    <form method="post">
+        <img class="mb-4" src="#" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-lg btn-primary" type="submit">Sign Up</button>
+    </form>
+</main>
+</body>
+{% endblock content %}
