@@ -1,12 +1,13 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<div class="px-4 py-5 my-5 text-center">
-    <img class="d-block mx-auto mb-4" src="#" alt="" width="72" height="57">
+<div class="px-4 py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="{% static 'images/logo.png'%}" alt="" width="30%" height="50%">
     <h1 class="display-5 fw-bold">Furniture Shop</h1>
-    <div class="col-lg-6 mx-auto">
+    <div class="col-lg-15 mx-auto">
         <p class="lead mb-4">
             We proudly design and develop our entire
             range of furniture products in India. We combine
@@ -19,10 +20,10 @@
             materials are sourced in India, ensuring high
             quality and reduced carbon footprint.
         </p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
-        </div>
+<!--        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">-->
+<!--            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>-->
+<!--            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>-->
+<!--        </div>-->
     </div>
 </div>
 {% endblock content %}

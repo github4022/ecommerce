@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="modal-dialog modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img class="col-auto bd-placeholder-img mx-1 my-1" width="50" height="50" src="{{ category.image.url }}" alt="{{ category.name }}">
+                <h4 class="col modal-title text-start" id="exampleModalLabel">
+                    {{ category|title }}
+                </h4>
+            </div>
+            <div class="modal-body text-center">
+                <h6>Are you sure, you want to delete {{ category.name }} category?</h6>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ category.get_absolute_url }}">
+                    <button type="submit" class="btn btn-secondary btn-sm">Cancle</button>
+                </a>
+                <form method="post">
+                    {% csrf_token %}
+                    <a href="{% url 'category_delete' category.slug %}">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

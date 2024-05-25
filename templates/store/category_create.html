@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 col-md-6">
+      <div class="form text-center">
+        <form class="mb-3" method="post" enctype="multipart/form-data">
+          <h3 class="h3 mb-3 fw-dark pt-3 pb-2">Add new Category</h3>
+          {% csrf_token %}
+          {{ form.as_p }}
+          <a href="{{ category.get_absolute_url }}">
+            <button type="submit" class="btn btn-secondary btn-sm">Cancle</button>
+          </a>
+          <button class="btn btn-sm btn-success" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+<!--    <div class="col-sm-5 offset-sm-2 col-md-3 offset-md-3">-->
+<!--      Yet to implement-->
+<!--    </div>-->
+  </div>
+</div>
+
+  {% endblock content %}

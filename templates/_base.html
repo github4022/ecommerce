@@ -1,4 +1,5 @@
 {% load bootstrap5 %}
+{% load static %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
@@ -10,11 +11,11 @@
     </title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="#" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            Furniture Shop
+            <img src="{% static 'images/logo.png'%}" alt="" width="30" height="30" class="d-inline-block align-text-top text-white">
+            <span class="text">Furniture Shop</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,25 +23,40 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                 </li>
 <!--                <li class="nav-item">-->
 <!--                    <a class="nav-link" href="#">Link</a>-->
 <!--                </li>-->
+                {% if user.is_superuser %}
                 <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
+                    <a class="nav-link active dropdown-toggle" href="{% url 'category_list' %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+<!--                        <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--                        <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--                        <li><hr class="dropdown-divider"></li>-->
+<!--                        <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+
+                        <li class="nav-item">
+                            <a class="dropdown-item" href="{% url 'category_list' %}">Categories</a>
+                        </li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li class="nav-item">
+                            <a class="dropdown-item" href="{% url 'category_create' %}">New Category</a>
+                        </li>
+
                     </ul>
                 </li>
+                {% else %}
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Contact Us</a>
+                    <a class="nav-link active" href="{% url 'category_list' %}">Categories</a>
                 </li>
+                {% endif %}
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link active" href="#">Contact Us</a>-->
+<!--                </li>-->
 <!--                <li class="nav-item">-->
 <!--                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
 <!--                </li>-->
@@ -53,11 +69,11 @@
             {% if request.user.is_authenticated %}
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">@{{ user.username|title }}</a>
+                    <a class="nav-link active h6 fw-normal mt-1" aria-current="page" href="#">@{{ user.username|title }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">
-                        <form action="{% url 'logout' %}" method="post">
+                        <form class="mb-2 mb-lg-0" action="{% url 'logout' %}" method="post">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-primary btn-sm">Log Out</button>
                         </form>
@@ -86,7 +102,7 @@
 <div class="container">
     {% if messages %}
     {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">
+    <div class="alert alert-{{ message.tags }} text-center">
         {{ message }}
     </div>
     {% endfor %}
